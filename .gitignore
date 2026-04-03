@@ -1,0 +1,245 @@
+# AyosBayan ML Module - Git Ignore
+# ================================
+#
+# This file tells Git which files to ignore (not track).
+# This is important for keeping the repository clean and
+# not uploading large model files or sensitive data.
+#
+# Author: Federex (AyosBayan Research Project)
+# Version: 1.0
+# Last Updated: April 2026
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+
+# Python bytecode - compiled Python files
+# These are automatically generated and don't need to be tracked
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python extension modules
+*.so
+
+# Python package information
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# Virtual environments
+# Local Python virtual environment (see README for setup)
+venv/
+env/
+ENV/
+.venv
+
+# Python development tools
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter Notebook checkpoints
+# These are auto-generated and can be large
+.ipynb_checkpoints/
+
+# ============================================================================
+# MACHINE LEARNING MODELS
+# ============================================================================
+
+# Trained model files
+# These are large and should not be committed
+# Train your model and place best.pt in project root
+best.pt
+best_*.pt
+last.pt
+yolov8*.pt
+
+# Training outputs
+# These can be large and are regenerated each run
+runs/
+output/
+weights/
+
+# ============================================================================
+# DATASETS
+# ============================================================================
+
+# Dataset directories
+# These can be very large and are downloaded separately
+data/pothole_dataset/images/
+data/pothole_dataset/labels/
+data/pothole_dataset/train/
+data/pothole_dataset/val/
+data/pothole_dataset/test/
+
+# Roboflow exports (if using)
+roboflow-export/
+data/raw/
+
+# Kaggle/other dataset downloads
+*.zip
+*.tar.gz
+*.tar
+
+# ============================================================================
+# IDE AND EDITORS
+# ============================================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (PyCharm, etc.)
+.idea/
+*.iml
+
+# Emacs
+*~
+*.swp
+*.swo
+
+# Vim
+*~
+.*.swp
+.swp
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Atom
+/.atom/
+
+# ============================================================================
+# OPERATING SYSTEM FILES
+# ============================================================================
+
+# macOS
+# Common on Mac computers
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Linux
+*~
+
+# Windows
+# Common on Windows computers
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ============================================================================
+# LOGS AND TEMPORARY FILES
+# ============================================================================
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Cache files
+.cache/
+*.cache
+
+# Temporary directories
+temp/
+tmp/
+
+# ============================================================================
+# DOCKER
+# ============================================================================
+
+# Docker build cache
+.docker/
+
+# Docker compose overrides
+docker-compose.override.yml
+
+# Container logs
+*.log
+
+# ============================================================================
+# ENVIRONMENT VARIABLES
+# ============================================================================
+
+# Environment variables file
+# This should contain secrets - never commit!
+.env
+.env.local
+.env.*.local
+
+# API keys and secrets
+*.key
+*.pem
+
+# ============================================================================
+# TESTING
+# ============================================================================
+
+# Test results
+test_results/
+.junit/
+coverage.xml
+*.cover
+
+# Test outputs
+tests/output/
+tests/results/
+
+# ============================================================================
+# DOCUMENTATION
+# ============================================================================
+
+# Documentation builds
+docs/_build/
+site/
+
+# Generated documentation
+*.html
+*.pdf
+
+# ============================================================================
+# GITHUB
+# ============================================================================
+
+# GitHub templates (if using)
+.github/
+
+# Git LFS (Large File Storage)
+# Uncomment if using Git LFS
+# *.pt filter=lfs diff=lfs merge=lfs -text
+# *.pth filter=lfs diff=lfs merge=lfs -text
+# *.pth filter=lfs diff=lfs merge=lfs -text
+
+# ============================================================================
+# NOTE
+# ============================================================================
+
+# The trained model (best.pt) is NOT included in the repository.
+# 
+# To train your own model:
+# 1. Use Google Colab (see notebooks/01_train_pothole_yolov8.ipynb)
+# 2. Download the trained best.pt file
+# 3. Place it in the project root
+# 4. The model will be used by inference.py and api.py
+#
+# Dataset images and labels are also not included.
+# Download from Roboflow or prepare your own dataset.

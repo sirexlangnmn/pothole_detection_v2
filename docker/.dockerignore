@@ -1,0 +1,71 @@
+# ============================================================================
+# AyosBayan - .dockerignore
+# ============================================================================
+#
+# This file tells Docker which files to ignore when building the image.
+# This helps keep the image small and avoids copying unnecessary files.
+#
+# Author: Federex (AyosBayan Research Project)
+# Version: 1.0
+# Last Updated: April 2026
+# ============================================================================
+
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter notebook cache
+.ipynb_checkpoints/
+*.ipynb
+
+# Dataset and training outputs
+# These are large and not needed in the container
+data/
+runs/
+output/
+
+# Model files (will be copied separately)
+# best.pt is typically copied after training
+# best_*.pt
+
+# Documentation
+README.md
+README_v2.md
+*.md
+
+# Docker files
+docker/
+
+# Test files
+# (Optional - remove if you want test images in container)
+# tests/
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db

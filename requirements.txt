@@ -1,0 +1,38 @@
+# AyosBayan ML Module Dependencies
+# Automated Detection of Infrastructure Issues
+# Version: 1.0
+
+# Ultralytics YOLOv8 - The core object detection model
+# Using version 8.3.0 as specified in the README
+# YOLOv8 is chosen because:
+#   - Extremely fast inference (< 2 seconds on CPU)
+#   - Excellent accuracy for road damage detection
+#   - Single-line Python API
+#   - Transfer learning from COCO dataset (already knows roads/objects)
+#   - Built-in support for real-time web deployment
+ultralytics==8.3.0
+
+# FastAPI - Modern, fast web framework for building APIs
+# Used for the ML inference API endpoint
+# Benefits:
+#   - Fast performance (similar to Node.js/Go)
+#   - Easy to use for Python developers
+#   - Automatic API documentation (Swagger UI)
+#   - Built-in validation and serialization
+fastapi==0.115.0
+
+# Uvicorn - ASGI server for running FastAPI applications
+# Required to run the API server
+# ASGI (Asynchronous Server Gateway Interface) is the standard
+# for building asynchronous web applications in Python
+uvicorn==0.30.0
+
+# Pillow - Python Imaging Library for image processing
+# Used for image loading and manipulation in inference
+# Supports various image formats (JPEG, PNG, BMP, etc.)
+pillow==10.4.0
+
+# python-multipart - Multipart form data parsing
+# Required for handling file uploads in FastAPI
+# Enables the API to accept image files from citizens
+python-multipart==0.0.12

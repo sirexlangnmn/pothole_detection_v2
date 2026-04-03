@@ -1,0 +1,68 @@
+# ============================================================================
+# AyosBayan - Docker Compose
+# ============================================================================
+#
+# Docker Compose configuration for running the AyosBayan pothole detection
+# API with other services (future expansion).
+#
+# Usage:
+#   docker-compose up -d
+#
+# To stop:
+#   docker-compose down
+#
+# Author: Federex (AyosBayan Research Project)
+# Version: 1.0
+# Last Updated: April 2026
+# ============================================================================
+
+# Docker Compose version
+version: '3.8'
+
+# Services to run
+services:
+  # The main pothole detection API
+  api:
+    # Build from the Dockerfile in the docker directory
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    
+    # Container name
+    container_name: ayosbayan-pothole-api
+    
+    # Port mapping (host:container)
+    ports:
+      - "8000:8000"
+    
+    # Environment variables
+    environment:
+      - PYTHONUNBUFFERED=1
+    
+    # Volume mounts (for development)
+    # This allows code changes without rebuilding
+    volumes:
+      - ./src:/app/src
+      - ./best.pt:/app/best.pt  # Mount trained model
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Network mode
+    network_mode: bridge
+    
+    # Optional: GPU support (requires nvidia-docker)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
